@@ -1,14 +1,14 @@
 def weird_algorithm(n):
-    secuencia = [n]
+    if n < 1 or type(n) != int or n > 10**6:
+        return print("El numero debe ser un entero positivo")
+    array_numbers = []
     while n != 1:
+        array_numbers.append(n)
         if n % 2 == 0:
-            n //= 2
-        else:
-            n = (n * 3) + 1
-        secuencia.append(n)
-    return secuencia
+            n = n // 2
+        else: 
+            n = n * 3 + 1
+    array_numbers.append(n)
+    return print(array_numbers)
 
-num = int(input(" Imprime un axel aleatorio: "))
-
-print("")
-print(*weird_algorithm(num))
+weird_algorithm(3)

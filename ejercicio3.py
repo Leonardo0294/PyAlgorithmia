@@ -1,15 +1,22 @@
-def espiral_numerico(x, y):
-   
-    capa = max(x, y)
-    valor_base = (capa - 1) * (capa - 1) + 1
-    if x <= y:
-        offset = x - 1
+def number_spiral(rows, columns):
+    if rows > columns: 
+        prev_area = (rows - 1) * (rows - 1)
+        if rows % 2 != 0: 
+            column_increment = columns
+        else:
+            column_increment = 2 * rows - columns
+        return prev_area + column_increment
     else:
-        offset = (capa - 1) - (y - 1)
+      
+        prev_area = (columns - 1) * (columns - 1)
 
-    return valor_base + offset
+        if columns % 2 == 0: 
+            row_increment = rows
+        else:
+            row_increment = 2 * columns - rows
+            
+        return prev_area + row_increment
 
-x = 3
-y = 2
-valor = espiral_numerico(x, y)
-print(f"El valor del número en la posición ({x}, {y}) es: {valor}")
+
+assert number_spiral(2, 2) == 3, "Error en el caso de prueba"
+print(number_spiral(4, 5))

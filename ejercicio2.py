@@ -1,16 +1,11 @@
-def missing_number(n, numbers):
-    # Calcula la suma total esperada de los números de 1 a n
-    expected_sum = n * (n + 1) // 2
-    
-    # Calcula la suma real de los números dados
-    actual_sum = sum(numbers)
-    
-    # El número faltante es la diferencia entre la suma esperada y la suma real
-    missing = expected_sum - actual_sum
-    
-    return missing
+def missing_number(limit, array = []): 
+    if len(array) == limit - 1:
 
-# Prueba del caso de prueba dado
-assert missing_number(5, [1, 2, 4, 5]) == 3, "Error en el caso de prueba"
+        for position in array:  
+            if not isinstance(position, int):
+                return print("Los elementos del array deben ser enteros")
+        for number in range(1, limit):
+            if number not in array:
+                return print(number)
 
-
+missing_number(10, [1, 2, 3, 4, 6, 7, 8, 9, 10]) 
