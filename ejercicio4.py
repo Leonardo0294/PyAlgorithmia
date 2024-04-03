@@ -20,7 +20,6 @@ def palindrome_reorder(chain):
                 differences += 1
                 if differences > 1:
                     return "NO SOLUTION" 
-
       
         for letter, count in letters_frequency.items():
             if count % 2 == 0:
@@ -35,19 +34,18 @@ def palindrome_reorder(chain):
             while count > 0:
                 palindrome += letter
                 count -= 1
-
-        # Agregar la letra adicional al palíndromo si es necesario
         if aux_letter:
             palindrome += aux_letter
         
-        # Construir la segunda mitad del palíndromo invirtiendo la primera mitad y eliminar la letra auxiliar
+        # Se construye la segunda mitad del palíndromo invirtiendo la primera mitad y eliminar la letra auxiliar
         reversed_palindrome = palindrome[::-1]
         palindrome += reversed_palindrome[1:]
         
-        return palindrome  # Devolver el palíndromo completo
+        return palindrome  
     else: 
-        return "La cadena no cumple con las condiciones"  # Devolver un mensaje de error si las condiciones no se cumplen
+        #Se devuelve un mensaje de error si las condiciones no se cumplen
+        return "La cadena no cumple con las condiciones"  
 
-# Ejemplo de uso y prueba
+# Ejemplo de prueba
 assert palindrome_reorder("aabbc") == "abcba", "Error en el caso de prueba"
-print(palindrome_reorder("ayarrbybyyowoyw"))
+print(palindrome_reorder("aabbc"))
